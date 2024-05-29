@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <title>متجر الملابس - صفحة الوصف والدفع</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .product-details {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 50%;
+            text-align: right;
+        }
+        .product-details h2 {
+            margin-bottom: 20px;
+        }
+        .product-details .image img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-details .info {
+            margin-bottom: 20px;
+        }
+        .product-details .info .title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .product-details .info .price {
+            color: #f39c12;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .payment-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 50%;
+            text-align: right;
+        }
+        .payment-form h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>الوصف والدفع</h1>
+    </header>
+
+    <div class="product-container">
+        <div class="product-details">
+            <div class="image">
+                <img src="img/1.jpg" alt="صورة المنتج">
+            </div>
+            <div class="info">
+                <h2 class="title">منتج 1</h2>
+                <div class="price">100  دينار</div>
+                <p>وصف المنتج: إليك وصف المنتج هنا...</p>
+            </div>
+        </div>
+
+        <div class="payment-form">
+            <h2>تفاصيل الدفع</h2>
+            <form id="visa-payment-form">
+                <div class="form-group">
+                    <label for="card-number">رقم بطاقة الائتمان</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="أدخل رقم البطاقة">
+                </div>
+                <div class="form-group">
+                    <label for="card-holder">اسم صاحب البطاقة</label>
+                    <input type="text" id="card-holder" name="card-holder" placeholder="أدخل اسم صاحب البطاقة">
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">تاريخ الانتهاء (MM/YY)</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="مثال: 12/25">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="أدخل رمز CVV">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="أكمل الدفع">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('visa-payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+
+            Swal.fire({
+                icon: 'success',
+                title: 'شكرًا لك!',
+                text: 'تم استلام طلبك بنجاح.',
+                showConfirmButton: false,
+                timer: 2000
+            });
+
+            document.getElementById('visa-payment-form').reset();
+        });
+    </script>
+</body>
+</html>
